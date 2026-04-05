@@ -11,6 +11,8 @@ const seedAdmin = require("./config/seed");
 // Seed admin user
 seedAdmin();
 const cors = require("cors");
+const app = express();
+
 app.use(cors({
   origin: [
     "http://localhost:3000",
@@ -18,8 +20,6 @@ app.use(cors({
   ],
   credentials: true,
 }));
-const app = express();
-
 // Connect to MongoDB
 connectDB();
 
