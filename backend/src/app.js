@@ -6,7 +6,18 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/users");
 const transactionRoutes = require("./routes/transactions");
 const dashboardRoutes = require("./routes/dashboard");
+const seedAdmin = require("./config/seed");
 
+// Seed admin user
+seedAdmin();
+const cors = require("cors");
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://finance-app-two-gamma.vercel.app",
+  ],
+  credentials: true,
+}));
 const app = express();
 
 // Connect to MongoDB
